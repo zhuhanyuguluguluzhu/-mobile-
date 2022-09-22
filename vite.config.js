@@ -13,6 +13,7 @@ export default defineConfig({
     vue(),
     Components({
       resolvers: [VantResolver()],
+      directoryAsNamespace: true,
     }),
   ],
   resolve: {

@@ -43,12 +43,13 @@ const { chooseCity } = storeToRefs(cityStore);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  // margin-top: 10px;
   height: 44px;
   .city {
-    font-size: 15px;
-    margin-left: 10px;
-    color: #333;
+    font-size: 14px;
+    // margin-left: 10px;
+    font-weight: 600;
+    color: #666;
   }
   .myLocation {
     display: flex;

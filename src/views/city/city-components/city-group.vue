@@ -63,7 +63,7 @@ const router = useRouter();
 const chooseCity = (city) => {
   // console.log(city);
   // 传给 cityStore
-  cityStore.chooseCity.cityName = city.cityName;
+  cityStore.chooseCity = city;
   router.back();
 };
 </script>
