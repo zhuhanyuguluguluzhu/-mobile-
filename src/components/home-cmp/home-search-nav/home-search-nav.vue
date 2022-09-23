@@ -24,11 +24,10 @@
 import { formatDate } from "@/utils/formatDate";
 import { computed } from "@vue/reactivity";
 
-const nowDay = new Date();
-// const stayTime = ref(formatDate(nowDay));
-
-const newDay = new Date().setDate(nowDay.getDate() + 1);
-// const leaveTime = ref(formatDate(newDay));
+import useMainStore from "@/stores/mainStore/mainStore";
+import { storeToRefs } from "pinia";
+const mainStore = useMainStore();
+const { nowDay, newDay } = storeToRefs(mainStore);
 
 const startDateStr = computed(() => formatDate(nowDay.value, "MM.DD"));
 const endDateStr = computed(() => formatDate(newDay.value, "MM.DD"));
@@ -137,7 +136,7 @@ const endDateStr = computed(() => formatDate(newDay.value, "MM.DD"));
     height: 24px;
     display: inline-block;
 
-    background-image: url(../../assets/img/home/home-sprite.png);
+    background-image: url(@/assets/img/home/home-sprite.png);
     background-position: -29px -151px;
     background-size: 207px 192px;
   }

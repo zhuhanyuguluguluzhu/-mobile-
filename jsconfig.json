@@ -8,6 +8,7 @@
         "src/*"
       ]
     },
+    "jsx": "preserve",
     "lib": [
       "esnext",
       "dom",
@@ -15,7 +16,4 @@
       "scripthost"
     ]
   },
-  "vueCompilerOptions": {
-    "experimentalDisableTemplateSupport": true
-  }
 }

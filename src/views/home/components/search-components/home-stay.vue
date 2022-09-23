@@ -21,15 +21,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { formatDate, getIntervalDate } from "@/utils/formatDate";
-import emitter from "@/utils/eventBus/eventBus";
-//获取入住时间和离店时间
-const nowDay = new Date();
-const stayTime = ref(formatDate(nowDay));
-// console.log(stayTime.value);
-const newDay = new Date().setDate(nowDay.getDate() + 1);
-const leaveTime = ref(formatDate(newDay));
+import useMainStore from "@/stores/mainStore/mainStore";
+import { storeToRefs } from "pinia";
+import { computed } from "@vue/reactivity";
+const mainStore = useMainStore();
+const { nowDay, newDay } = storeToRefs(mainStore);
+// console.log(nowDay, newDay);
+//获取格式化入住时间和离店时间
+const stayTime = computed(() => formatDate(nowDay.value));
+
+const leaveTime = computed(() => formatDate(newDay.value));
+
+// 计算天数
+const stayDays = ref(getIntervalDate(nowDay.value, newDay.value));
 
 //日历功能
 const showCalendar = ref(false);
@@ -38,21 +44,13 @@ const onConfirm = (dates) => {
   const selectDateStart = dates[0];
   const selectDateEnd = dates[1];
   // console.log(selectDateEnd);
-  stayTime.value = formatDate(selectDateStart);
-  leaveTime.value = formatDate(selectDateEnd);
+  mainStore.nowDay = selectDateStart;
+  mainStore.newDay = selectDateEnd;
   showCalendar.value = false;
 
   // 计算选择后天数
-  stayDays.value = ref(getIntervalDate(selectDateStart, selectDateEnd));
+  stayDays.value = getIntervalDate(selectDateStart, selectDateEnd);
 };
-// 计算天数
-const stayDays = ref(getIntervalDate(nowDay, newDay));
-
-//事件总线给home-search 发送数据
-onMounted(() => {
-  emitter.emit("clickToSearch", [stayTime, leaveTime]);
-});
-// defineEmits()
 </script>
 
 <style scoped lang="less">

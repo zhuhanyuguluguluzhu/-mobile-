@@ -2,7 +2,7 @@
   <div class="home-house-type3">
     <div class="inner">
       <div class="cover">
-        <img :src="houseData.image.url" alt="" />
+        <img :src="houseData?.image?.url" alt="" />
       </div>
 
       <div class="info">
@@ -14,9 +14,9 @@
         <div class="summaryText">{{ houseData.summaryText }}</div>
         <div class="priceInfo">
           <h2 class="price">￥{{ houseData.finalPrice }}</h2>
-          <div class="productPrice">￥{{ houseData.productPrice }}</div>
+          <del class="productPrice">￥{{ houseData.productPrice }}</del>
           <div class="priceTipBadge-bargin">
-            {{ houseData.priceTipBadge.text }}
+            {{ houseData?.priceTipBadge?.text }}
           </div>
           <div></div>
         </div>
@@ -74,9 +74,26 @@ const props = defineProps({
       .priceInfo {
         display: flex;
         margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         .price {
           color: var(--primary-color);
           font-size: 15px;
+        }
+        .productPrice {
+          font-size: 12px;
+          color: #ccc;
+        }
+        .priceTipBadge-bargin {
+          background-image: linear-gradient(270deg, #ff6666, #ff9f9f);
+          border-radius: 8px;
+          color: #fff;
+          height: 13px;
+          line-height: 153x;
+          text-align: center;
+          padding: 2px 6px;
+          font-size: 12px;
         }
       }
     }

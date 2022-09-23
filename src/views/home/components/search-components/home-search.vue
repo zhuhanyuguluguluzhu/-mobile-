@@ -3,21 +3,17 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { formatDate } from "@/utils/formatDate";
 import { useRouter } from "vue-router";
-import emitter from "@/utils/eventBus/eventBus";
+import { computed } from "vue";
+import useMainStore from "@/stores/mainStore/mainStore";
+import { storeToRefs } from "pinia";
 
-//接受数据
-const stayTime = ref();
-const leaveTime = ref();
-
-emitter.on("clickToSearch", (data) => {
-  // console.log(data);
-  stayTime.value = data[0].value;
-  leaveTime.value = data[1].value;
-  // console.log(stayTime);
-});
-
+const mainStore = useMainStore();
+const { nowDay, newDay } = storeToRefs(mainStore);
+const stayTime = computed(() => formatDate(nowDay.value));
+// console.log(stayTime);
+const leaveTime = computed(() => formatDate(newDay.value));
 const router = useRouter();
 const toSearch = () => {
   router.push({

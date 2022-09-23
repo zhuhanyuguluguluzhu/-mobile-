@@ -2,9 +2,11 @@ import axios from "axios";
 
 import { BASE_URL, TIMEOUT } from "./config";
 
-import useIsloading from "@/stores/modules/isLoading/isloading";
+import useMainStore from "@/stores/mainStore/mainStore";
 
-const isLoadingStore = useIsloading();
+const mainStore = useMainStore();
+// const { isLoading } = mainStore;
+
 class myRequest {
   constructor(baseURL, timeout = 10000) {
     this.instance = axios.create({
@@ -14,7 +16,7 @@ class myRequest {
     this.instance.interceptors.request.use(
       (config) => {
         //发送网络请求前显示
-        isLoadingStore.isLoading = true;
+        mainStore.isLoading = true;
         return config;
       },
       (err) => {
@@ -24,12 +26,12 @@ class myRequest {
     this.instance.interceptors.response.use(
       (res) => {
         //发送成功的时候 消失
-        isLoadingStore.isLoading = false;
+        mainStore.isLoading = false;
         return res;
       },
       (err) => {
         // 发送失败不显示
-        isLoadingStore.isLoading = false;
+        mainStore.isLoading = false;
         return err;
       }
     );

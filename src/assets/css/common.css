@@ -6,6 +6,7 @@
   --van-search-left-icon-color:var(--primary-color);
 
   --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
+  --van-primary-color:var(--primary-color)
 }
 
 body {
@@ -17,10 +18,10 @@ body {
 }
 
 
-/* .page-top {
+.page-top {
   height: 100vh;
   position: relative;
   z-index: 999;
   overflow-y: hidden;
   background-color: #fff;
-} */
+}

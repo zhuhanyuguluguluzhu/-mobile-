@@ -11,17 +11,18 @@ const useHomeStore = defineStore("home", {
   actions: {
     async fetchHotSuggests() {
       const res = await getHotSuggests();
-      this.allKeyPlace = res.data;
+      this.allKeyPlace = res?.data;
     },
     async fetchcateGories() {
       const res = await getCategories();
-      this.categories = res.data;
+      this.categories = res?.data;
     },
     async fetchHouseList() {
       const res = await getHouseList(this.currentPage);
-      this.houseList.push(...res.data);
+      this.houseList.push(...res?.data);
       this.currentPage++;
       // console.log(this.houseList);
+      // async 定义的函数会默认的返回一个Promise对象resolve的值
     },
   },
 });

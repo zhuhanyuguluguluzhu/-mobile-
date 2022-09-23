@@ -1,5 +1,5 @@
 <template>
-  <div class="isLoading" v-show="isLoadingStore.isLoading" @click="close">
+  <div class="isLoading" v-show="mainStore.isLoading" @click="close">
     <div class="bg">
       <img src="@/assets/img/home/full-screen-loading.gif" alt="" />
     </div>
@@ -7,12 +7,11 @@
 </template>
 
 <script setup>
-import useIsloading from "@/stores/modules/isLoading/isloading";
+import useMainStore from "@/stores/mainStore/mainStore";
 
-const isLoadingStore = useIsloading();
-
+const mainStore = useMainStore();
 const close = () => {
-  isLoadingStore.isLoading = false;
+  mainStore.isLoading = false;
 };
 </script>
 

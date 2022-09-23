@@ -14,8 +14,9 @@ export default function userScroll() {
     clientHeight.value = document.documentElement.clientHeight;
     scrollTop.value = document.documentElement.scrollTop;
     scrollHeight.value = document.documentElement.scrollHeight;
+    // console.log(scrollTop.value);
     if (clientHeight.value + scrollTop.value >= scrollHeight.value) {
-      console.log("滚动到底部了");
+      console.log("reach the windowBottom");
       isReachBottom.value = true;
     }
   }, 200);
