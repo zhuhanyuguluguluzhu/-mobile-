@@ -28,7 +28,7 @@ import useMainStore from "@/stores/mainStore/mainStore";
 import { storeToRefs } from "pinia";
 const mainStore = useMainStore();
 const { nowDay, newDay } = storeToRefs(mainStore);
-
+// console.log(nowDay);
 const startDateStr = computed(() => formatDate(nowDay.value, "MM.DD"));
 const endDateStr = computed(() => formatDate(newDay.value, "MM.DD"));
 </script>
