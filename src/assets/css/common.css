@@ -5,7 +5,7 @@
   /* --van-tabbar-item-icon-size: 30px !important; */
   --van-search-left-icon-color:var(--primary-color);
 
-  --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
+  --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f) !important;
   --van-primary-color:var(--primary-color)
 }
 
@@ -21,7 +21,7 @@ body {
 .page-top {
   height: 100vh;
   position: relative;
-  z-index: 999;
-  overflow-y: hidden;
-  background-color: #fff;
+  z-index: 9999;
+  /* overflow-y: hidden; */
+  background-color: #fff !important;
 }

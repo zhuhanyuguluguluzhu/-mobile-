@@ -1,5 +1,15 @@
 <template>
-  <router-view />
+  <!-- 对首页进行缓存 -->
+  <!-- <keep-alive include="home">
+    <router-view />
+  </keep-alive> -->
+
+  <router-view v-slot="{ Component }">
+    <keep-alive include="home">
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
+
   <tab-bar v-show="!route.meta.hiddenTabbar" />
   <isLoading />
 </template>

@@ -76,7 +76,7 @@ for (const item of props.swipePicData) {
 
 <style scoped lang="less">
 .swipe {
-  margin-top: 10px;
+  // margin-top: 10px;
   .pic {
     img {
       width: 100%;

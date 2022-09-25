@@ -6,7 +6,7 @@
     <div class="detail-content">
       <slot><h2>稍等片刻 内容马上就来</h2></slot>
     </div>
-    <div class="detail-footer">
+    <div class="detail-footer" v-if="check.length">
       <div class="footer">{{ check }}</div>
       <van-icon name="arrow" />
     </div>

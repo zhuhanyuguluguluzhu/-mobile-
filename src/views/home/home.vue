@@ -15,6 +15,11 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "home",
+};
+</script>
 <script setup>
 //components
 import homeNavBar from "./components/home-nav-bar.vue";

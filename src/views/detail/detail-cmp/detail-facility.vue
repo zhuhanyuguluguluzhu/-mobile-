@@ -45,6 +45,7 @@ const props = defineProps({
     align-items: center;
     height: 80px;
     width: 100%;
+    font-size: 14px;
     .overAll {
       display: flex;
       flex-direction: column;
@@ -52,8 +53,8 @@ const props = defineProps({
       align-items: center;
       width: 33.3%;
       img {
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
       }
       span {
         margin-top: 5px;

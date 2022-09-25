@@ -38,6 +38,9 @@ const router = createRouter({
       // 动态路由 可以下url栏显示对应的id 属于params 参数
       path: "/detail/:id",
       component: () => import("@/views/detail/detail.vue"),
+      meta: {
+        hiddenTabbar: true,
+      },
     },
   ],
 });
