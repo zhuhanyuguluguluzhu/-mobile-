@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>
+      const day = dayjs();
+      console.log(day);
+
+      //设置时间
+      const day1 = dayjs("1995-12-25");
+      console.log(day1);
+
+      // 传入时间
+      console.log("$$", new Date());
+      console.log(dayjs(new Date(2018, 8, 18)));
+
+      const nowday = dayjs(new Date()).get("day");
+      console.log("***" + nowday);
+    </script>
+  </body>
+</html>

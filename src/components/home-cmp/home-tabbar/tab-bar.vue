@@ -34,10 +34,11 @@ const currentIndex = ref(0);
 const route = useRoute();
 
 watch(route, (newRoute) => {
-  // console.log(newRoute.path);
+  console.log(newRoute.path);
   const index = tabbarData.findIndex((item) => item.path);
+  // console.log(currentIndex.value);
   if (index === newRoute) {
-    if (index === -1) return;
+    if (currentIndex === -1) return; //why
     currentIndex.value = index;
   }
 });

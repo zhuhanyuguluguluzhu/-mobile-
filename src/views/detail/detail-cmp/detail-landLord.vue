@@ -1,51 +1,57 @@
 <template>
   <div class="detail-landLord">
-    <div class="introduction">
-      <div class="cover">
-        <img :src="landLordData?.topScroll" alt="" />
-      </div>
-      <div class="landLord">
-        <div class="left">
-          <div class="avatar">
-            <img :src="landLordData.hotelLogo" alt="" />
-          </div>
-          <div class="info">
-            <h3 class="houseName">
-              {{ landLordData.hotelName }}
-            </h3>
-            <div class="tags">
-              <template
-                v-for="(item, index) in landLordData.hotelTags"
-                :key="index"
-              >
-                <div class="tag" :style="{ color: item.tagText.color }">
-                  {{ item?.tagText.text }}
-                </div>
-                <span class="line">|</span>
-              </template>
+    <detail-section title="房东介绍" check="查看房东主页">
+      <div class="introduction">
+        <div class="cover">
+          <img :src="landLordData?.topScroll" alt="" />
+        </div>
+        <div class="landLord">
+          <div class="left">
+            <div class="avatar">
+              <img :src="landLordData.hotelLogo" alt="" />
+            </div>
+            <div class="info">
+              <h3 class="houseName">
+                {{ landLordData.hotelName }}
+              </h3>
+              <div class="tags">
+                <template
+                  v-for="(item, index) in landLordData.hotelTags"
+                  :key="index"
+                >
+                  <div class="tag" :style="{ color: item.tagText.color }">
+                    {{ item?.tagText.text }}
+                  </div>
+                  <span class="line">|</span>
+                </template>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="right">
-          <div class="contact">联系房东</div>
+          <div class="right">
+            <div class="contact">联系房东</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="infos">
-      <template v-for="(info, index) in landLordData.hotelSummary" :key="index">
-        <div class="info">
-          <div class="title">
-            {{ info.title }}
+      <div class="infos">
+        <template
+          v-for="(info, index) in landLordData.hotelSummary"
+          :key="index"
+        >
+          <div class="info">
+            <div class="title">
+              {{ info.title }}
+            </div>
+            <div class="percent">{{ info.introduction }}</div>
+            <div class="tip">{{ info.tip }}</div>
           </div>
-          <div class="percent">{{ info.introduction }}</div>
-          <div class="tip">{{ info.tip }}</div>
-        </div>
-      </template>
-    </div>
+        </template>
+      </div>
+    </detail-section>
   </div>
 </template>
 
 <script setup>
+import detailSection from "@/components/detail/detail-section.vue";
 const props = defineProps({
   landLordData: {
     type: Object,

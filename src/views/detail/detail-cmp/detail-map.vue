@@ -1,10 +1,13 @@
 <template>
   <div class="detail-map">
-    <div class="baidu" ref="mapRef"></div>
+    <detail-section title="周围位置" check="查看更多周边信息">
+      <div class="baidu" ref="mapRef"></div>
+    </detail-section>
   </div>
 </template>
 
 <script setup>
+import detailSection from "@/components/detail/detail-section.vue";
 import { onMounted, ref } from "vue";
 const props = defineProps({
   position: {

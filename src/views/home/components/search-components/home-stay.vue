@@ -46,6 +46,7 @@ const onConfirm = (dates) => {
   // console.log(selectDateEnd);
   mainStore.nowDay = selectDateStart;
   mainStore.newDay = selectDateEnd;
+  // 关闭日历
   showCalendar.value = false;
 
   // 计算选择后天数

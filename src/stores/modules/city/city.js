@@ -10,7 +10,7 @@ const useCityStore = defineStore("city", {
   actions: {
     async fetchAllCityData() {
       const res = await getCityAll();
-      this.allCities = res.data;
+      this.allCities = res?.data;
     },
   },
 });

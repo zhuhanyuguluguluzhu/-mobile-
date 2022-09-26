@@ -1,28 +1,31 @@
 <template>
   <div class="detail-facility">
-    <template v-for="(item, index) in facilityData" :key="index">
-      <div class="item" v-if="facilityIconGroup?.includes(index)">
-        <div class="overAll">
-          <img :src="item.icon" alt="" />
-          <span>{{ item.groupName }}</span>
+    <detail-section title="房屋设施" check="查看全部设施">
+      <template v-for="(item, index) in facilityData" :key="index">
+        <div class="item" v-if="facilityIconGroup?.includes(index)">
+          <div class="overAll">
+            <img :src="item.icon" alt="" />
+            <span>{{ item.groupName }}</span>
+          </div>
+          <div class="list">
+            <template
+              v-for="(fac, Subscript) in item.facilitys.slice(0, 4)"
+              :key="Subscript"
+            >
+              <div class="facs">
+                <i class="icon_check icon"></i>
+                <span class="text">{{ fac.name }}</span>
+              </div>
+            </template>
+          </div>
         </div>
-        <div class="list">
-          <template
-            v-for="(fac, Subscript) in item.facilitys.slice(0, 4)"
-            :key="Subscript"
-          >
-            <div class="facs">
-              <i class="icon_check icon"></i>
-              <span class="text">{{ fac.name }}</span>
-            </div>
-          </template>
-        </div>
-      </div>
-    </template>
+      </template>
+    </detail-section>
   </div>
 </template>
 
 <script setup>
+import detailSection from "@/components/detail/detail-section.vue";
 const props = defineProps({
   facilityData: {
     type: Array,

@@ -13,6 +13,7 @@ class myRequest {
       baseURL,
       timeout,
     });
+    // 请求拦截器
     this.instance.interceptors.request.use(
       (config) => {
         //发送网络请求前显示
@@ -23,6 +24,7 @@ class myRequest {
         return err;
       }
     );
+    // 响应拦截器
     this.instance.interceptors.response.use(
       (res) => {
         //发送成功的时候 消失
